@@ -3,8 +3,6 @@
 
 function filtertransaction()
 {
-	setfilterparam("maxshowndata", 0); /* ensures we are not given the actual data */
-
 	var tx=getfiltertransaction();
 
 	for (var output=0; output<tx.vout.length; output++)
