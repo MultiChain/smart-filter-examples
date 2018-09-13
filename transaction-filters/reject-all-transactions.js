@@ -1,4 +1,4 @@
-/* This filter cannot actually be approved because it rejects itself! */
+/* This filter cannot actually be approved because it rejects its own approval transaction! */
 
 function filtertransaction()
 {
