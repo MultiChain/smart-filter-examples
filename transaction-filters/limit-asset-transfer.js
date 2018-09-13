@@ -25,7 +25,7 @@ function outputtoaddressbalancechange(output, spent, addressbalancechange)
 		{
 			if (output.assets[assetnum].name=="USD")
 			{
-				for (addressnum=0; addressnum<output.scriptPubKey.addresses.length; addressnum++)
+				for (var addressnum=0; addressnum<output.scriptPubKey.addresses.length; addressnum++)
 				{
 					var address=output.scriptPubKey.addresses[addressnum];
 					
