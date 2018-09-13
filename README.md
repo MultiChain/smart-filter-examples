@@ -19,10 +19,10 @@ Smart Filters roadmap
 
 Transaction filters define rules about whether a transaction is valid, by examining that transaction’s inputs, outputs and metadata. These are available in MultiChain 2.0 alpha 5.
 
-Data filters define rules about whether the data in a stream item is valid, by examining that (on-chain or off-chain) data together with the item’s publishers and keys. These will be available in MultiChain2.0 alpha 6.
+Data filters define rules about whether the data in a stream item is valid, by examining that (on-chain or off-chain) data together with the item’s publishers and keys. These will be available in MultiChain 2.0 alpha 6.
 
 
 Enjoy and contribute
 --------------------
 
-We welcome pull requests for this repository, containing your own Smart Filters. If the license for your Smart Filter code is anything other than public domain, please make that clear.
+We welcome pull requests for this repository, containing your own Smart Filters. If the license for your Smart Filter code is anything other than public domain, please make that clear in the submitted file.
