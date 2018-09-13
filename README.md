@@ -11,7 +11,7 @@ About Smart Filters
 
 A Smart Filter is a piece of code which is embedded in the blockchain, and which allows custom rules to be defined regarding the validity of transactions or data. Smart Filters are written in JavaScript and run within a deterministic version of Google’s V8 JavaScript engine, which is embedded directly within MultiChain 2.0 alpha 5+. This is the same JavaScript engine used in Chrome, Node.js and many other platforms. It offers excellent performance by compiling JavaScript to machine code and continuing to optimizing that code as it runs.
 
-For more information and documentation, see [Working with Smart Filters][https://www.multichain.com/developers/smart-filters/]
+For more information and documentation, see [Working with Smart Filters](https://www.multichain.com/developers/smart-filters/)
 
 
 Smart Filters roadmap
