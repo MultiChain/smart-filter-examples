@@ -19,7 +19,7 @@ function filtertransaction()
 
 function outputtoaddressbalancechange(output, spent, addressbalancechange)
 {
-	if (output.assets)
+	if (output && output.assets)
 	{
 		for (var assetnum=0; assetnum<output.assets.length; assetnum++)
 		{
