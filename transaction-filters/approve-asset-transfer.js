@@ -86,3 +86,4 @@ function outputisapproval(output)
 {
 	return output.data && (output.data.length==1) && (output.data[0].json) && (output.data[0].json.type=="approval");
 }
+
