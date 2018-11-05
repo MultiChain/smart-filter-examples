@@ -48,8 +48,8 @@ function filtertransaction()
 			var input=getfiltertxinput(inputnum);
 			
 			for (var addressnum=0; addressnum<input.scriptPubKey.addresses.length; addressnum++)
-				if (!verifypermission(input.scriptPubKey.addresses[addressnum], "low2"))
-					return "Address "+input.scriptPubKey.addresses[addressnum]+" does not have permission to create approvals";
+				if (!verifypermission(input.scriptPubKey.addresses[addressnum], "low1"))
+					return "Address "+input.scriptPubKey.addresses[addressnum]+" does not have low1 permission to create approvals";
 		}	
 	}
 	
@@ -58,13 +58,7 @@ function filtertransaction()
 		non-expired approvals belonging to that address being spent at the same time
 	*/
 	
-	var addressbalancechange={};
-	
-	for (var inputnum=0; inputnum<tx.vin.length; inputnum++)
-		outputtoaddressbalancechange(getfiltertxinput(inputnum), true, addressbalancechange);
-		
-	for (var outputnum=0; outputnum<tx.vout.length; outputnum++)
-		outputtoaddressbalancechange(tx.vout[outputnum], false, addressbalancechange);
+	var addressbalancechange=getfilterassetbalances("USD", true);
 		
 	for (var address in addressbalancechange) {
 		if (addressbalancechange[address]<0) { /* this address is sending some asset units */
@@ -91,27 +85,4 @@ function filtertransaction()
 function outputisapproval(output)
 {
 	return output.data && (output.data.length==1) && (output.data[0].json) && (output.data[0].json.type=="approval");
-}
-
-function outputtoaddressbalancechange(output, spent, addressbalancechange)
-{
-	if (output.assets)
-	{
-		for (var assetnum=0; assetnum<output.assets.length; assetnum++)
-		{
-			if (output.assets[assetnum].name=="USD")
-			{
-				for (var addressnum=0; addressnum<output.scriptPubKey.addresses.length; addressnum++)
-				{
-					var address=output.scriptPubKey.addresses[addressnum];
-					
-					if (!addressbalancechange.hasOwnProperty(address))
-						addressbalancechange[address]=0;
-					
-					var rawchange=spent ? -output.assets[assetnum].raw : output.assets[assetnum].raw;
-					addressbalancechange[address]+=rawchange;
-				}
-			}
-		}
-	}
 }
