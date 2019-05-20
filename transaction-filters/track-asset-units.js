@@ -86,7 +86,7 @@ function canonicalizeassetranges(ranges)
 	var sorted=ranges.sort(function (a, b) { return a.start - b.start; });
 	
 	for (var j=sorted.length-1; j>0; j--) // now combine adjacent ranges together
-		if (sorted[j-1].end=sorted[j].start) {
+		if (sorted[j-1].end==sorted[j].start) {
 			sorted[j-1].end=sorted[j].end;
 			sorted.splice(j, 1);
 		}
